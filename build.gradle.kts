@@ -1,9 +1,10 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     java
     kotlin("jvm") version "1.3.72"
     application
 }
-
 group = "org.example"
 version = "1.0-SNAPSHOT"
 
@@ -13,7 +14,7 @@ repositories {
 }
 
 application{
-    mainClass.set("Pearlbot2.main")
+    mainClass.set("PearlBot")
 }
 
 dependencies {
@@ -25,4 +26,8 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jdbc:0.25.1")
     implementation("org.jetbrains.exposed:exposed-java-time:0.25.1")
     implementation("mysql:mysql-connector-java:5.1.34")
+}
+
+tasks.withType<KotlinCompile>{
+    kotlinOptions.jvmTarget = "1.8"
 }
